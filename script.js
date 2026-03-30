@@ -201,9 +201,44 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// ===== Plausible section visibility tracking =====
+// ===== Plausible event tracking =====
 (function () {
-    if (typeof window.plausible !== 'function') return;
+    function track(name, props) {
+        if (window.plausible) window.plausible(name, props ? { props: props } : undefined);
+    }
+
+    // CTA buttons
+    document.querySelectorAll('.hero-actions .btn-primary').forEach(el =>
+        el.addEventListener('click', () => track('CTA Click', { button: 'See Projects' }))
+    );
+    document.querySelectorAll('.hero-actions .btn-ghost').forEach(el =>
+        el.addEventListener('click', () => track('CTA Click', { button: 'Work With Me' }))
+    );
+
+    // Project cards
+    document.querySelectorAll('.project-card').forEach(el => {
+        el.addEventListener('click', () => {
+            const name = el.querySelector('h3')?.textContent || 'Unknown';
+            track('Project Click', { project: name });
+        });
+    });
+
+    // Contact cards
+    document.querySelectorAll('.contact-card').forEach(el => {
+        el.addEventListener('click', () => {
+            const label = el.querySelector('.cc-label')?.textContent || 'Unknown';
+            track('Contact Click', { method: label });
+        });
+    });
+
+    // Footer links
+    document.querySelectorAll('.footer-links a').forEach(el => {
+        el.addEventListener('click', () => {
+            track('Footer Click', { link: el.textContent.trim() });
+        });
+    });
+
+    // Section visibility
     const sections = { about: false, projects: false, contact: false };
     const sectionObserver = new IntersectionObserver(
         (entries) => {
@@ -211,7 +246,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 const id = entry.target.id;
                 if (entry.isIntersecting && !sections[id]) {
                     sections[id] = true;
-                    window.plausible('Section View', { props: { section: id } });
+                    track('Section View', { section: id });
                 }
             });
         },
