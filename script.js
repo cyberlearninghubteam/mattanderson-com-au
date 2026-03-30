@@ -65,6 +65,15 @@
         rows = Math.ceil(height / cellSize) + 1;
     }
 
+    function lerpColor(t) {
+        // t: 0 = red, 0.5 = purple, 1 = blue
+        t = Math.max(0, Math.min(1, t));
+        const r = Math.round(220 * (1 - t) + 37 * t);
+        const g = Math.round(38 * (1 - t) + 99 * t);
+        const b = Math.round(38 * (1 - t) + 235 * t);
+        return [r, g, b];
+    }
+
     function draw() {
         ctx.clearRect(0, 0, width, height);
         const time = Date.now() * 0.001;
@@ -82,17 +91,23 @@
                 const wave = Math.sin(time * 0.5 + i * 0.4 + j * 0.4) * 0.3 + 0.3;
                 const alpha = 0.02 + wave * 0.015 + proximity * 0.15;
 
+                // Color shifts red→purple→blue based on diagonal position + time
+                const diagT = (i / cols + j / rows) * 0.5;
+                const colorShift = Math.sin(time * 0.3 + diagT * Math.PI * 2) * 0.5 + 0.5;
+                const [r, g, b] = lerpColor(colorShift);
+
                 ctx.beginPath();
                 ctx.arc(x, y, 1 + proximity * 2.5, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(129, 140, 248, ${alpha})`;
+                ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha})`;
                 ctx.fill();
 
                 if (proximity > 0.25) {
+                    const lineAlpha = proximity * 0.06;
                     if (i < cols - 1) {
                         ctx.beginPath();
                         ctx.moveTo(x, y);
                         ctx.lineTo(x + cellSize, y);
-                        ctx.strokeStyle = `rgba(129, 140, 248, ${proximity * 0.06})`;
+                        ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${lineAlpha})`;
                         ctx.lineWidth = 0.5;
                         ctx.stroke();
                     }
@@ -100,7 +115,7 @@
                         ctx.beginPath();
                         ctx.moveTo(x, y);
                         ctx.lineTo(x, y + cellSize);
-                        ctx.strokeStyle = `rgba(129, 140, 248, ${proximity * 0.06})`;
+                        ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${lineAlpha})`;
                         ctx.lineWidth = 0.5;
                         ctx.stroke();
                     }
