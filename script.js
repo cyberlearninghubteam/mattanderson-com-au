@@ -200,3 +200,25 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 });
+
+// ===== Plausible section visibility tracking =====
+(function () {
+    if (typeof window.plausible !== 'function') return;
+    const sections = { about: false, projects: false, contact: false };
+    const sectionObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                const id = entry.target.id;
+                if (entry.isIntersecting && !sections[id]) {
+                    sections[id] = true;
+                    window.plausible('Section View', { props: { section: id } });
+                }
+            });
+        },
+        { threshold: 0.3 }
+    );
+    Object.keys(sections).forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) sectionObserver.observe(el);
+    });
+})();
