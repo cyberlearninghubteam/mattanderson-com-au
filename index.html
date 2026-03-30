@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matt Anderson | Identity, Fraud & Cybersecurity</title>
+    <meta name="description" content="Matt Anderson - Educator and consultant in identity, fraud and cybersecurity. Australia.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="grid-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <a href="#" class="nav-logo">
+            <span class="logo-bracket">{</span> MA <span class="logo-bracket">}</span>
+        </a>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>
+                    <span class="hero-line hero-line-gradient">Matt Anderson</span>
+                </h1>
+                <div class="hero-typed-wrap">
+                    <span class="hero-typed-prefix">I </span>
+                    <span class="hero-typed" id="typed-text"></span>
+                    <span class="typed-cursor">|</span>
+                </div>
+                <p class="hero-subtitle">Helping Australian businesses make smarter decisions about identity, fraud, and cybersecurity &mdash; through practical tools, training, and plain-English guidance.</p>
+                <div class="hero-certs">
+                    <span class="cert-badge">CISSP</span>
+                    <span class="cert-badge">PMP</span>
+                    <span class="cert-badge">CIAM</span>
+                </div>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary">See What I'm Building</a>
+                    <a href="#contact" class="btn btn-ghost">Work With Me</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-frame">
+                    <img src="assets/profile.jpg" alt="Matt Anderson" />
+                    <div class="image-border"></div>
+                    <div class="image-glow"></div>
+                </div>
+                <!-- Floating stats around image -->
+                <div class="floating-stat fs-1">
+                    <span class="fs-num">28+</span>
+                    <span class="fs-label">Organisations</span>
+                </div>
+                <div class="floating-stat fs-2">
+                    <span class="fs-num">ASX 200</span>
+                    <span class="fs-label">Experience</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span class="scroll-text">Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Social Proof Bar -->
+    <section class="proof-bar">
+        <div class="clients-marquee">
+            <div class="marquee-track">
+                <span>Medibank</span><span>Telstra</span><span>Wesfarmers</span><span>Suncorp</span><span>AAMI</span><span>GIO</span><span>Bingle</span><span>APIA</span><span>AAI</span><span>Momentum Energy</span><span>Deloitte</span><span>Commonwealth Bank</span><span>Target</span><span>Kmart</span><span>ahm</span><span>ElectraNet</span><span>Ladbrokes</span><span>Transurban</span><span>iSelect</span><span>Hydro Tasmania</span><span>Belong</span><span>Statewide Super</span><span>T2</span><span>City of Adelaide</span><span>Government of South Australia</span><span>Catch</span><span>Coverforce</span><span>NAB</span><span>Bankwest</span>
+                <span>Medibank</span><span>Telstra</span><span>Wesfarmers</span><span>Suncorp</span><span>AAMI</span><span>GIO</span><span>Bingle</span><span>APIA</span><span>AAI</span><span>Momentum Energy</span><span>Deloitte</span><span>Commonwealth Bank</span><span>Target</span><span>Kmart</span><span>ahm</span><span>ElectraNet</span><span>Ladbrokes</span><span>Transurban</span><span>iSelect</span><span>Hydro Tasmania</span><span>Belong</span><span>Statewide Super</span><span>T2</span><span>City of Adelaide</span><span>Government of South Australia</span><span>Catch</span><span>Coverforce</span><span>NAB</span><span>Bankwest</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="about-layout">
+                <div class="about-left">
+                    <div class="section-label">// about</div>
+                    <h2 class="about-heading">I've spent years in the trenches of <span class="highlight">identity</span>, <span class="highlight">fraud prevention</span>, and <span class="highlight">cybersecurity</span>.</h2>
+                    <p class="about-body">From leading platform delivery for ASX 200 companies to building free tools for small businesses &mdash; I believe security knowledge shouldn't be locked behind enterprise budgets or consultant fees.</p>
+                    <p class="about-body">Today I split my time between teaching, building tools, and running community workshops. Everything I create answers the same question: <em>how do we make security easier for the people who need it most?</em></p>
+                </div>
+                <div class="about-right">
+                    <!-- Terminal-style card -->
+                    <div class="terminal-card" data-animate>
+                        <div class="terminal-dots">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="terminal-line"><span class="t-prompt">$</span> cat approach.txt</div>
+                            <div class="terminal-line t-output">&gt; Plain English over jargon</div>
+                            <div class="terminal-line t-output">&gt; Australian standards (E8, Privacy Act)</div>
+                            <div class="terminal-line t-output">&gt; Free where possible, fair where not</div>
+                            <div class="terminal-line t-output">&gt; Built for SMBs, not enterprises</div>
+                            <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-blink">_</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section section-dark" id="projects">
+        <div class="container">
+            <div class="section-label">// projects</div>
+            <h2 class="section-title">What I'm Building</h2>
+            <p class="section-subtitle">Tools and platforms that make cybersecurity practical for Australian businesses.</p>
+
+            <div class="projects-grid">
+                <a href="https://cyberlearninghub.com" target="_blank" rel="noopener" class="project-card project-featured" data-animate>
+                    <div class="project-card-inner">
+                        <div class="project-number">01</div>
+                        <div class="project-tag">Training Platform</div>
+                        <h3>CyberLearningHub</h3>
+                        <p>ACSC Essential Eight-aligned cyber awareness training for Australian SMBs. Training modules, knowledge checks, simulated phishing, and compliance-ready evidence packs.</p>
+                        <div class="project-meta">
+                            <span class="meta-pill">Compliance</span>
+                            <span class="meta-pill">Training</span>
+                            <span class="meta-pill">$599/yr</span>
+                        </div>
+                        <span class="project-link">cyberlearninghub.com <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></span>
+                    </div>
+                    <div class="project-glow"></div>
+                </a>
+
+                <a href="https://flagged.com.au" target="_blank" rel="noopener" class="project-card" data-animate>
+                    <div class="project-card-inner">
+                        <div class="project-number">02</div>
+                        <div class="project-tag">Risk Assessment</div>
+                        <h3>Flagged</h3>
+                        <p>Free cyber risk assessment. 50 plain-English questions, 12 security domains, 15 minutes. Get a PDF report to share with your IT provider or insurer.</p>
+                        <div class="project-meta">
+                            <span class="meta-pill">Free</span>
+                            <span class="meta-pill">Essential Eight</span>
+                        </div>
+                        <span class="project-link">flagged.com.au <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></span>
+                    </div>
+                </a>
+
+                <a href="https://phishbate.com" target="_blank" rel="noopener" class="project-card" data-animate>
+                    <div class="project-card-inner">
+                        <div class="project-number">03</div>
+                        <div class="project-tag">Education</div>
+                        <h3>Phishbate</h3>
+                        <p>Can you spot a phish? Free interactive game teaching people to identify phishing emails, AI-generated content, and scam scenarios. 5 minutes, no signup.</p>
+                        <div class="project-meta">
+                            <span class="meta-pill">Free</span>
+                            <span class="meta-pill">Gamified</span>
+                        </div>
+                        <span class="project-link">phishbate.com <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></span>
+                    </div>
+                </a>
+
+                <a href="https://authstate.com" target="_blank" rel="noopener" class="project-card" data-animate>
+                    <div class="project-card-inner">
+                        <div class="project-number">04</div>
+                        <div class="project-tag">IAM Directory</div>
+                        <h3>AuthState</h3>
+                        <p>Curated directory of Identity and Access Management vendors. MFA, SSO, PAM, compliance &mdash; find the right solution without the sales pitch.</p>
+                        <div class="project-meta">
+                            <span class="meta-pill">IAM</span>
+                            <span class="meta-pill">Vendor Reviews</span>
+                        </div>
+                        <span class="project-link">authstate.com <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="contact-layout">
+                <div class="contact-left">
+                    <div class="section-label">// let's talk</div>
+                    <h2 class="contact-heading">Got a security challenge?<br>Let's figure it out.</h2>
+                    <p class="contact-body">Whether you're an SMB needing a risk assessment, an MSP looking for a training partner, or an insurer after compliance solutions &mdash; I'm here to help.</p>
+                </div>
+                <div class="contact-right">
+                    <a href="mailto:hello@mattanderson.com.au" class="contact-card" data-animate>
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <span class="cc-label">Email</span>
+                        <span class="cc-value">hello@mattanderson.com.au</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/xmanderson/" target="_blank" rel="noopener" class="contact-card" data-animate>
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                        <span class="cc-label">LinkedIn</span>
+                        <span class="cc-value">Connect with me</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <span>&copy; 2026 Matt Anderson</span>
+            <span class="footer-links">
+                <a href="https://cyberlearninghub.com" target="_blank" rel="noopener">CyberLearningHub</a>
+                <a href="https://flagged.com.au" target="_blank" rel="noopener">Flagged</a>
+                <a href="https://phishbate.com" target="_blank" rel="noopener">Phishbate</a>
+                <a href="https://authstate.com" target="_blank" rel="noopener">AuthState</a>
+            </span>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
