@@ -68,9 +68,9 @@
     function lerpColor(t) {
         // t: 0 = red, 0.5 = purple, 1 = blue
         t = Math.max(0, Math.min(1, t));
-        const r = Math.round(220 * (1 - t) + 37 * t);
-        const g = Math.round(38 * (1 - t) + 99 * t);
-        const b = Math.round(38 * (1 - t) + 235 * t);
+        const r = Math.round(255 * (1 - t) + 0 * t);
+        const g = Math.round(0 * (1 - t) + 212 * t);
+        const b = Math.round(0 * (1 - t) + 255 * t);
         return [r, g, b];
     }
 
